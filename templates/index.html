@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tin tức từ Tuổi Trẻ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding-left: 150px;
+            padding-right: 150px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #0066cc;
+        }
+        /* img {
+            max-width: 100%;
+            height: auto;
+        } */
+        .img {
+            width: 30%;
+            height: 30%;
+        }
+        .text {
+            text-align: center; /* Để căn giữa theo chiều ngang */
+        }
+        .content {
+            margin: auto;
+            display: inline-block;
+        }
+        .list {
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+
+        .hihi {
+            text-decoration: none;
+            color: #519ae4;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="text">
+        <div class="content">
+            <h1>Tin tức cập nhật mới nhất trong ngày</h1>
+        </div>
+        <div class="content">
+            <ul>
+                {% for news_item in news_data %}
+                    <li class="list">
+                        <h2><a class="hihi" href="{{ news_item['url'] }}">{{ news_item['title'] }}</a></h2>
+                        <p>{{ news_item['abstract'] }}</p>
+                        <img class="img" src="{{ news_item['image'] }}" alt="{{ news_item['title'] }}">
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        
+    </div>
+    
+</body>
+</html>
